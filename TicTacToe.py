@@ -162,7 +162,7 @@ class GUI:
         winning = self.board.won()
         if winning:
             for x, y in winning:
-                self.buttons[x, y]['disabledforeground'] = 'green'
+                self.buttons[x, y]['disabledforeground'] = 'yellow'
             for x, y in self.buttons:
                 self.buttons[x, y]['state'] = 'disabled'
         for (x, y) in self.board.fields:

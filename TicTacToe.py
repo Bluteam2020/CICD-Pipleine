@@ -153,7 +153,7 @@ class GUI:
         for (x, y) in self.board.fields:
             text = self.board.fields[x, y]
             self.buttons[x, y]['text'] = text
-            self.buttons[x, y]['disabledforeground'] = 'black'
+            self.buttons[x, y]['disabledforeground'] = 'red'
 
             if text == self.board.empty:
                 self.buttons[x, y]['state'] = 'normal'

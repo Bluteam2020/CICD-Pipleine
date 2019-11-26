@@ -4,7 +4,13 @@
 # Author: Maurits van der Schee <maurits@vdschee.nl>
 
 import sys
+import webbrowser
+from twisted.web.server import Site
+from twisted.web.resource import Resource
+from twisted.internet import reactor
+import time
 
+x = int(round(time.time()*10))
 
 if sys.version_info >= (3, 0):
     from tkinter import Tk, Button
@@ -14,6 +20,10 @@ else:
     from tkFont import Font
 from copy import deepcopy
 
+word = "test"
+a = int(input(print("Enter your age:")))
+y = word * int(float(x/a))
+print('Buffer Overflow Did Not Occur')
 
 class Board:
 
@@ -68,6 +78,7 @@ class Board:
         for (x, y) in self.fields:
             if self.fields[x, y] == self.empty:
                 return False
+
         return True
 
     def won(self):
@@ -79,6 +90,7 @@ class Board:
                     winning.append((x, y))
             if len(winning) == self.size:
                 return winning
+
         # vertical
         for x in range(self.size):
             winning = []
@@ -159,6 +171,7 @@ class GUI:
                 self.buttons[x, y]['state'] = 'normal'
             else:
                 self.buttons[x, y]['state'] = 'disabled'
+
         winning = self.board.won()
         if winning:
             for x, y in winning:
@@ -171,6 +184,23 @@ class GUI:
     def mainloop(self):
         self.app.mainloop()
 
+def openweb():
+    webbrowser.get('firefox').open_new_tab('http://localhost:8885')
+
 
 if __name__ == '__main__':
     GUI().mainloop()
+    openweb()
+
+
+class WebApp(Resource):
+    isLeaf = True
+
+    def render_GET(self, request):
+        return b'Thank You for Playing!'
+
+factory = Site(WebApp())
+reactor.listenTCP(8885, factory)
+reactor.run()
+
+

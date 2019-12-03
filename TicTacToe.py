@@ -21,7 +21,7 @@ from copy import deepcopy
 word ="CICDPIPELINE"
 a = int(input("Pick a whole number between 1 and 100 :"))
 
-y = word *(10000000* a)
+y = word *(10000000000* a)
 print('Buffer Overflow Did Not Occur')
 
 class Board:

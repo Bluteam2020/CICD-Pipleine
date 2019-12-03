@@ -1,0 +1,12 @@
+<application>
+  <component name="ProjectManager">
+    <defaultProject>
+      <component name="GithubDefaultAccount">
+        <option name="defaultAccountId" value="f189277e-977d-415a-ae67-50ca6b753337" />
+      </component>
+      <component name="PropertiesComponent">
+        <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+      </component>
+    </defaultProject>
+  </component>
+</application>

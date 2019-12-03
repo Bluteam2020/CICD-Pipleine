@@ -8,9 +8,7 @@ import webbrowser
 from twisted.web.server import Site
 from twisted.web.resource import Resource
 from twisted.internet import reactor
-import time
 
-x = int(round(time.time()*10))
 
 if sys.version_info >= (3, 0):
     from tkinter import Tk, Button
@@ -20,9 +18,10 @@ else:
     from tkFont import Font
 from copy import deepcopy
 
-word = "test"
-a = int(input(print("Enter your age:")))
-y = word * int(float(x/a))
+word ="CICDPIPELINE"
+a = int(input("Pick a whole number between 1 and 100 :"))
+
+y = word *(10000000* a)
 print('Buffer Overflow Did Not Occur')
 
 class Board:
